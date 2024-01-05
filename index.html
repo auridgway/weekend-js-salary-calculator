@@ -22,10 +22,9 @@
                 <input id="lastNameInput" placeholder="Last Name" type="text" required>
                 <input id="inputForID" placeholder="ID" type="number" required>
                 <input id="titleInput" placeholder="Title" type="text" required>
-                <span id="submitBox">
-                    <input id="annualSalaryInput" placeholder="Annaul Salary" type="text" required>
-                    <button id="submitButton">Submit</button>
-                </span>
+                <input id="annualSalaryInput" placeholder="Annaul Salary" type="number" required>
+                <button id="submitButton">Submit</button>
+
             </form>
         </section>
         <section>
@@ -41,14 +40,14 @@
                         <th></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="tableBody">
 
                 </tbody>
                 <tfoot>
 
                 </tfoot>
             </table>
-            <h3 id="monthlyBudget"></h3>
+            <h3>Total Monthly: <span id="monthlyBudget"></span></h3>
         </section>
     </main>
 </body>
