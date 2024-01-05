@@ -1,0 +1,21 @@
+body {
+    background-color: blanchedalmond;
+    font-family: sans-serif;
+    color: darkolivegreen;
+    font-size: 20px;
+  }
+
+table {
+    width: 100%;
+    text-align: left;
+}
+table, th, td {
+    border-width: 0px;
+    border-spacing: 0px;
+    border: 1px solid darkolivegreen;
+}
+th {
+    color: blanchedalmond;
+    background-color: rgb(97, 76, 54);
+}
+
