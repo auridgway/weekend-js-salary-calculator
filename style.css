@@ -21,6 +21,10 @@ table {
     text-align: left;
 }
 
+img {
+    float: right;
+}
+
 table,
 th,
 td {
@@ -57,10 +61,16 @@ tfoot td {
 h3 {
     float: right;
 }
-.buttons{
+
+.buttons {
     border-color: transparent;
     align-content: center;
-margin: 0 auto;
+    margin: 0 auto;
+}
+
+#money {
+    display;
+    width: 100px;
 }
 
 #submitButton {
