@@ -15,40 +15,49 @@
     </header>
 
     <main>
-        <section>
-            <h2>Add Employee</h2>
-            <form onSubmit="submitForm(event)">
-                <input id="firstNameInput" placeholder="First Name" type="text" required>
-                <input id="lastNameInput" placeholder="Last Name" type="text" required>
-                <input id="inputForID" placeholder="ID" type="number" required>
-                <input id="titleInput" placeholder="Title" type="text" required>
-                <input id="annualSalaryInput" placeholder="Annaul Salary" type="number" required>
-                <button id="submitButton">Submit</button>
+        <div>
+            <section>
+                <h2>Add Employee</h2>
+                <form onSubmit="submitForm(event)">
+                    <input id="firstNameInput" placeholder="First Name" type="text" required>
+                    <input id="lastNameInput" placeholder="Last Name" type="text" required>
+                    <input id="inputForID" placeholder="ID" type="number" required>
+                    <input id="titleInput" placeholder="Title" type="text" required>
+                    <input id="annualSalaryInput" placeholder="Annaul Salary" type="number" required><br>
+                    <button onMouseDown="mouseDown()" onMouseUp="mouseUp(event)" id="submitButton">Submit</button>
 
-            </form>
-        </section>
-        <section>
-            <h2>Employees</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>ID</th>
-                        <th>Title</th>
-                        <th>Annual Salary</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="tableBody">
+                </form>
+            </section>
+            <section>
+                <h2>Employees</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Annual Salary</th>
+                            <th class="buttons"><button style="opacity: 0;">x</button></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
 
-                </tbody>
-                <tfoot>
-
-                </tfoot>
-            </table>
-            <h3>Total Monthly: <span id="monthlyBudget"></span></h3>
-        </section>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <h3>Total Monthly: <span id="monthlyBudget"></span></h3>
+            </section>
+        </div>
     </main>
 </body>
 

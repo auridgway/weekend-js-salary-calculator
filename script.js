@@ -1,38 +1,37 @@
-let employees = [];
 let employeeCounter = 0;
 let totalMonthlyCost = 0.00;
 
-const globalInputs = {firstName: document.getElementById('firstNameInput'), lastName: document.getElementById('lastNameInput'), empID: document.getElementById('inputForID'), title: document.getElementById('titleInput'), annualSalary: document.getElementById('annualSalaryInput')}
-const addEmployeeToArray = (firstName, lastName, empID, title, annualSalary) => employees.push({firstName, lastName, empID, title, annualSalary});
+const globalInputs = {firstNameInput: document.getElementById('firstNameInput'), lastNameInput: document.getElementById('lastNameInput'), empIdInput: document.getElementById('inputForID'), titleInput: document.getElementById('titleInput'), annualSalaryInput: document.getElementById('annualSalaryInput')};
 
 const removeRow = (e) => {
-    totalMonthlyCost -= employees[parseInt(e.target.closest('tr').id)].annualSalary;
-    document.getElementById("monthlyBudget").innerText = new Intl.NumberFormat('en-US', {style: 'currency',currency: 'USD'}).format(totalMonthlyCost);
-    employees.splice(0, parseInt(e.target.closest('tr').id));
-    employeeCounter = employees.length;
+    e.target.closest('tr').remove();;
 
-    e.target.closest('tr').remove();
+    totalMonthlyCost = 0;
+    const costArray = document.getElementsByClassName("monthlyCost");
+
+    for (let item of costArray){
+        totalMonthlyCost += parseFloat(item.textContent.replace(",","").replace("$",""))/12;
+    }
+
+    document.getElementById("monthlyBudget").innerText = new Intl.NumberFormat('en-US', {style: 'currency',currency: 'USD'}).format(totalMonthlyCost);
 }
 
 function submitForm(event){
     event.preventDefault();
 
-    employeeCounter = employees.length;
-    addEmployeeToArray(globalInputs.firstName.value, globalInputs.lastName.value, globalInputs.empID.value, globalInputs.title.value, parseFloat(globalInputs.annualSalary.value));
+    totalMonthlyCost += globalInputs.annualSalaryInput.value/12;
 
     document.getElementById('tableBody').innerHTML +=`
     <tr id="${employeeCounter}">
-        <td>${globalInputs.firstName.value}</td>
-        <td>${globalInputs.lastName.value}</td>
-        <td>${globalInputs.empID.value}</td>
-        <td>${globalInputs.title.value}</td>
-        <td>${new Intl.NumberFormat('en-US', {style: 'currency',currency: 'USD'}).format(globalInputs.annualSalary.value)}</td>
-        <td><button onClick="removeRow(event)">❌</button></td>
+        <td>${globalInputs.firstNameInput.value}</td>
+        <td>${globalInputs.lastNameInput.value}</td>
+        <td>${globalInputs.empIdInput.value}</td>
+        <td>${globalInputs.titleInput.value}</td>
+        <td class="monthlyCost">${new Intl.NumberFormat('en-US', {style: 'currency',currency: 'USD'}).format(globalInputs.annualSalaryInput.value)}</td>
+        <td><button class="buttons" onClick="removeRow(event)">❌</button></td>
     </tr>`
 
-    for (const person of employees){
-        totalMonthlyCost += person.annualSalary;
-    }
+
     document.getElementById("monthlyBudget").innerText = new Intl.NumberFormat('en-US', {style: 'currency',currency: 'USD'}).format(totalMonthlyCost);
     if (totalMonthlyCost > 20000){
         document.getElementById("monthlyBudget").style.backgroundColor = 'red';

@@ -3,19 +3,67 @@ body {
     font-family: sans-serif;
     color: darkolivegreen;
     font-size: 20px;
-  }
+    margin: 0;
+}
+
+header {
+    background-image: linear-gradient(burlywood, blanchedalmond);
+    padding: 10px;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0;
+}
 
 table {
     width: 100%;
     text-align: left;
 }
-table, th, td {
+
+table,
+th,
+td {
     border-width: 0px;
     border-spacing: 0px;
     border: 1px solid darkolivegreen;
 }
+
+td {
+    font-size: 14px;
+}
+
 th {
     color: blanchedalmond;
     background-color: rgb(97, 76, 54);
 }
 
+div {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+tfoot {
+    height: 20px;
+}
+
+tfoot td {
+    border-color: transparent;
+    background-color: burlywood;
+}
+
+h3 {
+    float: right;
+}
+.buttons{
+    border-color: transparent;
+    align-content: center;
+margin: 0 auto;
+}
+
+#submitButton {
+    float: right;
+    margin-top: 5px;
+}
